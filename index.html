@@ -160,14 +160,15 @@
         $("#filterBtn").on("click", function () {
             const chosen = $("#categorySelect").val();
             if (!chosen){
-                const allProductNames = products.map(p => '<span class="pName">' + p.name + '</span>');
+                const allProductNames = allProducts.map(p => '<span class="pName">' + p.name + '</span>');
                 $("#matches").html(allProductNames);
                 return;
             }
-            const filteredData = products.filter(p => p.categories.includes(chosen));
+            const filteredData = allProducts.filter(p => p.categories.includes(chosen));
             const html = filteredData.map(p => '<span class="pName">' + p.name + '</span>').join("<br>");
             $("#matches").html(html || "no matches");
         });
     </script>
 </body>
 </html>
+
